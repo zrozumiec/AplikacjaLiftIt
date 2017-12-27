@@ -1,0 +1,194 @@
+﻿
+#tab2 .well {
+
+    margin-top: 20px;
+    background: rgba(255, 255, 255,0.8);
+    
+}
+
+
+.auth h1 {
+    color: #2dc997 !important;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+}
+
+    .auth h1 span {
+        font-size: 21px;
+        /*display: block;*/
+        padding-top: 20px;
+    }
+
+.auth .auth-box legend {
+    color: #2dc997;
+    border: none;
+    font-weight: 300;
+    font-size: 24px;
+    text-transform:uppercase;
+}
+
+.auth .auth-box {
+    background-color: #2dc997;
+    max-width: 400px;
+    float:none;
+    margin:auto;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.32);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.32);
+    box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.32);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: background 1s ease-in-out;
+    -moz-transition: background 1s ease-in-out;
+    -ms-transition: background 1s ease-in-out;
+    -o-transition: background 1s ease-in-out;
+    transition: background 1s ease-in-out;
+}
+
+@media(max-width:460px) {
+    .auth .auth-box {
+        margin: 0 10px;
+    }
+}
+
+.auth .auth-box input::-webkit-input-placeholder { /* WebKit browsers */
+    color: gray;
+    font-weight: 300;
+}
+
+.auth .auth-box input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: gray;
+    font-weight: 300;
+}
+
+.auth .auth-box input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: gray;
+    font-weight: 300;
+}
+
+.auth .auth-box input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: gray;
+    font-weight: 300;
+}
+
+.auth span.input-group-addon,
+.input-group-btn button {
+    border: none;
+    background: #2dc997 !important;
+    color: #000 !important;
+}
+
+.auth form {
+    font-weight: 300 !important;
+}
+
+    .auth form input[type="text"],
+    .auth form input[type="password"],
+    .auth form input[type="email"],
+    .auth form input[type="search"] {
+        border: none;
+        padding: 10px 0 10px 0;
+        background-color: rgba(255, 255, 255, 0) !important;
+        background: rgba(255, 255, 255, 0);
+        color: #fff;
+        font-size: 16px;
+        border-bottom: 1px solid #2dc997;
+        border-radius: 0;
+        box-shadow: none !important;
+        height: auto;
+        text-align: center;
+    }
+
+.auth textarea {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #fff !important;
+}
+
+.auth input[type="file"] {
+    color: #fff;
+}
+
+.auth form label {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 300;
+}
+/*for radios & checkbox labels*/
+.auth .radio label,
+.auth label.radio-inline,
+.auth .checkbox label,
+.auth label.checkbox-inline {
+    font-size: 14px;
+}
+
+.auth form .help-block {
+    color: #fff;
+}
+
+.auth form select {
+    background-color: rgba(255, 255, 255, 0) !important;
+    background: rgba(255, 255, 255, 0);
+    color: #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+    .auth form select option {
+        color: #000;
+    }
+/*multiple select*/
+.auth select[multiple] option,
+.auth select[size] {
+    color: #fff !important;
+}
+
+/*Form buttons*/
+.auth form .btn {
+    background: none;
+    -webkit-transition: background 0.2s ease-in-out;
+    -moz-transition: background 0.2s ease-in-out;
+    -ms-transition: background 0.2s ease-in-out;
+    -o-transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+}
+
+.auth form .btn-default {
+    color: #fff;
+    border-color: #fff;
+}
+
+    .auth form .btn-default:hover {
+        background: rgba(225, 225, 225, 0.3);
+        color: #fff;
+        border-color: #fff;
+    }
+
+
+
+.auth form .btn-success:hover {
+    background: #2dc997;
+}
+
+.auth form .btn-link {
+    border: none;
+    color: #fff;
+    padding-left: 0;
+}
+
+    .auth form .btn-link:hover {
+        background: none;
+    }
+
+
+.auth label.label-floatlabel {
+    font-weight: 300;
+    font-size: 11px;
+    color: #fff;
+    left: 0 !important;
+    top: 1px !important;
+}

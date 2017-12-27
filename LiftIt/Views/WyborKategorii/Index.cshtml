@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Lift It";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>Regna Bootstrap Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicons -->
+
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/Index/animate.min.css" rel="stylesheet" />
+    <link href="~/css/Index/index.css" rel="stylesheet" />
+    <link href="~/css/WyborKategorii/circleImage.css" rel="stylesheet" />
+
+    <!-- =======================================================
+      Theme Name: Regna
+      Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+</head>
+
+<!--==========================
+Header
+============================-->
+<header id="header">
+    <div class="container">
+        <div id="logo" class="pull-left">
+
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/Index/logo.png" />
+            </a>
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!--<h1><a href="#hero">Regna</a></h1>-->
+        </div>
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a></li>
+                <li><a asp-area="" asp-controller="Kalendarz" asp-action="Index">Kalendarz</a></li>
+                <li class="menu-active"><a asp-area="" asp-controller="WyborKategorii" asp-action="Index">Wybór kategorii</a></li>
+            </ul>
+
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+
+<div class="container">
+    <ul class="row">
+        <li class="col-lg-4">
+            <figure class="snip0069 yellow">
+                <div class="image">
+                    <img src="~/images/WyborKategorii/circleImage3xxs.jpg" alt="Waga" />
+                </div>
+                <figcaption>
+                    <h3>Waga</h3>
+                    <p>Monitoruj swoją wagę, aby na bierząco kontrolować jej utratę lub przyrost.</p>
+                </figcaption><a asp-area="" asp-controller="Waga" asp-action="Index"></a>
+            </figure>
+        </li>
+        <li class="col-lg-4">
+            <figure class="snip0069 red hover">
+                <div class="image">
+                    <img src="~/images/WyborKategorii/circleImage2xxs.jpg" alt="Obwod" />
+                </div>
+                <figcaption>
+                    <h3>Obwody</h3>
+                    <p>Kontroluj rozmiar własnego ciała, aby wiedzieć nad którą częścią trzeba jeszcze popracować.</p>
+                </figcaption><a asp-area="" asp-controller="Obwody" asp-action="Index"></a>
+            </figure>
+        </li>
+        <li class="col-lg-4">
+            <figure class="snip0069 blue">
+                <div class="image"><img src="~/images/WyborKategorii/circleImage1xxs.jpg" alt="Trening" /></div>
+                <figcaption>
+                    <h3>Trening</h3>
+                    <p>Prowadz swój dziennik treningu, zapisuj postępy z siłowni, aby określić uzykany progres.</p>
+                </figcaption><a asp-area="" asp-controller="" asp-action=""></a>
+            </figure>
+        </li>
+    </ul>
+</div>

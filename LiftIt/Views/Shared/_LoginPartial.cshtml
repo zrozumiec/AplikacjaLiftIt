@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.Identity
+@using LiftIt.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+<form asp-area="" asp-controller="Home" asp-action="Logout" method="post" >
+    <nav id="nav-menu-container2">
+        <ul class="nav-menu">
+            <li><a asp-area="" asp-controller="Manage" asp-action="Index">Witaj <font color="#2dc997"> @UserManager.GetUserName(User)</font></a></li>
+            <li><button>Wyloguj</button></li>
+        </ul>
+    </nav>
+</form>
+}
+else
+{
+    <nav id="nav-menu-container2">
+        <ul class="nav-menu">
+            <li><a asp-area="" asp-controller="Home" asp-action="Login">Zaloguj</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="Register">Zarejstruj</a></li>
+        </ul>
+    </nav>
+}

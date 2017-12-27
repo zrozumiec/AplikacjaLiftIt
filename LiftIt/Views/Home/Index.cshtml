@@ -1,0 +1,278 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Lift It";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Regna Bootstrap Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicons -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/Index/animate.min.css" rel="stylesheet" />
+    <link href="~/css/Index/index.css" rel="stylesheet" />
+    <link href="~/css/Index/circleProgress.css" rel="stylesheet" />
+
+    <!-- =======================================================
+      Theme Name: Regna
+      Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+</head>
+<body>
+
+    <!--==========================
+      Hero Section
+    ============================-->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="opisHero">
+                <h1>Witaj w aplikacji <font color="#2dc997"> LIFT IT</font></h1>
+                <h2>Z nami zadbasz o własne ciało oraz zdrowie</h2>
+                <a onclick="showLogin()" class="btn-get-started" style="cursor:pointer ">Rozpocznij :]</a>
+            </div>
+        </div>
+    </section><!-- #hero -->
+
+
+
+
+    <main id="main">
+        <!--==========================
+          About Us Section
+        ============================-->
+        <section id="about">
+            <div class="container">
+                <div class="row about-container">
+                    <div class="col-lg-6 content order-lg-1 order-1">
+                        <h2 class="title">Kilka słów o nas</h2>
+                        <p>
+                            Aplikaja <font color="#2dc997"> LIFT IT</font> powstała z myślą o osobach aktywnych fizycznie, aby w szybki i prosty sposób umożliwić przechowywanie informacji dotyczących
+                            codzinnej wagi, obwodów ciała oraz umożliwić monitorowanie postępów na siłowni, w bieganiu lub innej formy aktywności fizycznej.
+                        </p>
+                        <div class="icon-box wow fadeInUp">
+                            <div class="icon"><i class="fa fa-hand-o-right"></i></div>
+                            <h4 class="title">Kochasz sport?</h4>
+                        </div>
+                        <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="icon"><i class="fa fa-hand-o-right"></i></div>
+                            <h4 class="title">Chcesz zadabać o zdrowie?</h4>
+                        </div>
+                        <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="icon"><i class="fa fa-hand-o-right"></i></div>
+                            <h4 class="title">Chcesz na bieżąco monitorować postępy?</h4>
+                        </div>
+                        <p>
+                            Dołącz do nas już dziś.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+                </div>
+            </div>
+        </section><!-- #about -->
+        <!--==========================
+          Facts Section
+        ============================-->
+        <section id="facts">
+            <div class="container wow fadeIn">
+                <div class="section-header">
+                    <h3 class="section-title">Kilka faktów na temat <font color="#2dc997"> LIFT IT</font></h3>
+                    <p class="section-description">Fakty oparte na danych z okresu ostatnich trzech miesięcy.</p>
+                </div>
+                <div class="row counters">
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">10214</span>
+                        <p>Użytkowników</p>
+                    </div>
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">32</span>
+                        <p>Średni czas spędzony w aplikacji<br>[min]</p>
+                    </div>
+                    <div class="col-lg-3 col-6 text-center">
+
+                        <span id="hit" data-toggle="counter-up">0</span>
+                        <p>Dzisiejsza liczba odwiedzin</p>
+                    </div>
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">46</span>
+                        <p>Dostępnych ćwiczeń w bazie danych</p>
+                    </div>
+                </div>
+            </div>
+            <div data-wow-delay=" 1s" class="container wow bounceInLeft">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="progress blue">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">94%</div>
+                        </div>
+                        <p class="text-center">Zadowolonych użytkowników</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="progress green">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">88%</div>
+                        </div>
+                        <p class="text-center">Użytkowników poleci LIFT IT swoim znajomym</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="progress pink">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">75%</div>
+                        </div>
+                        <p class="text-center">Użytkowników polepszyło swoje wyniki<br> dzięki LIFT IT</p>
+                    </div>
+                </div>
+            </div>
+        </section><!-- #facts -->
+        <!--==========================
+          Services Section
+        ============================-->
+        <section id="services">
+            <div class="container wow fadeIn">
+                <div class="section-header">
+                    <h3 class="section-title">Co oferujemy?</h3>
+                    <p class="section-description">Ofera z czasem będzie rozbudowywana.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="box">
+                            <div class="icon"><a><i class="fa fa-desktop"></i></a></div>
+                            <h4 class="title"><a>Przechowywuj oraz monitoruj swoją wagę</a></h4>
+                            <p class="description">Dzięki aplikacji będziesz w stanie monitorować swoją wagę wraz z innymi parametrami, tworzyć raporty dzięki którym zobaczysz jak Twoja waga zmieniała się w czasie.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="box">
+                            <div class="icon"><a><i class="fa fa-bar-chart"></i></a></div>
+                            <h4 class="title"><a>Przechowywuj obwody swojego ciała</a></h4>
+                            <p class="description">
+                                Aplikacja daje możliwość wprowadzania danych na temat rozmiaru naszego ciała. Dzięki temu będziesz w stanie zobaczyć, która cześć ciała miała najlepszy progres,
+                                a nad którą trzeba jeszcze popracować.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="box">
+                            <div class="icon"><a><i class="fa fa-spinner"></i></a></div>
+                            <h4 class="title"><a>Monitoruj postępy na siłowni</a></h4>
+                            <p class="description">Prowadz swój dziennik treningu, zapisuj postępy z siłowni, a następnie wygeneruj raport, aby ocenić czy przepracowany czas był czasem owocnym czy raczej straconym.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- #services -->
+        <!--==========================
+        Call To Action Section
+        ============================-->
+        <section id="call-to-action">
+            <div class="container wow fadeIn">
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3 class="cta-title">Weź sprawy w swoje ręce</h3>
+                        <p class="cta-text"> Dołącz do nas już dziś i przekonaj się, że nie warto zwlekać</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a href="#hero" class="cta-btn align-middle" onclick="showRegister()" style="cursor:pointer">Dołącz teraz</a>
+                    </div>
+                </div>
+            </div>
+        </section><!-- #call-to-action -->
+        <!--==========================
+          Contact Section
+        ============================-->
+        <section id="contact">
+            <div class="container wow fadeInUp center-block">
+                <div class="section-header">
+                    <h3 class="section-title">Kontakt</h3>
+                    <p class="section-description">Masz jakiś problem lub pytanie? Skontaktuj się z nami poprzez poniższy formularz.</p>
+                </div>
+            </div>
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="info">
+                            <div>
+                                <i class="fa fa-map-marker"></i>
+                                <p>Lift It<br>Rzeszów</p>
+                            </div>
+                            <div>
+                                <i class="fa fa-envelope"></i>
+                                <p>132938@stud.prz.edu.pl<br>kamil.ciupak@poczta.pl</p>
+                            </div>
+                            <div>
+                                <i class="fa fa-phone"></i>
+                                <p>xxxxxxxxx</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a target="_blank" href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a target="_blank" href="https://facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://instagram.com/" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="https://plus.google.com/" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-8 center-block">
+                        <div class="form">
+                            <div id="sendmessage">Twoja wiadomość została wysłana. Dziękujemy!</div>
+                            <div id="errormessage">Przepraszamy wystąpił błąd. Towja wiadomość nie możne zostać wysłana</div>
+
+                            <form id="formularzWiad" action="" method="post" role="form" class="contactForm">
+                                <div class="form-group">
+                                    <input type="text" required name="name" class="form-control" id="name" placeholder="Imie" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" required class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" />
+                                </div>
+                                <div class="form-group">
+                                    <select type="text" required class="form-control" name="subject" id="subject" placeholder="Temat" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                        <option value="py">Pytanie</option>
+                                        <option value="pr">Problem</option>
+                                        <option value="i">Inne</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" required name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Treść wiadomości"></textarea>
+                                </div>
+                                <div class="text-center"><button type="submit">Wyślij wiadomość</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- #contact -->
+    </main>
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+</body>
+</html>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

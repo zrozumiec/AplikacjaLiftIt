@@ -1,0 +1,164 @@
+﻿/*
+/* Created by Filipe Pina
+ * Specific styles of signin, register, component
+ */
+/*
+ * General styles
+ */
+#playground-container {
+    height: 500px;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.main {
+    margin: 50px 15px;
+}
+
+h1.title {
+    font-size: 50px;
+    font-family: 'Passion One', cursive;
+    font-weight: 400;
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.main-login {
+    
+    background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-control {
+    height: auto !important;
+    padding: 8px 12px !important;
+}
+
+.input-group {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.21) !important;
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.21) !important;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.21) !important;
+}
+
+#button {
+    border: 3px solid #2dc997;
+    width: 75%;
+    padding: 6px 2px;
+    color: white;
+    text-shadow: 0 1px #fff;
+    cursor: pointer;
+    background: #2dc997;
+    margin: 0 auto;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+    #button:hover {
+        background-color: #28a17a; /* Green */
+        color: #fff;
+        border: 3px solid #28a17a;
+    }
+
+.main-center {
+    margin: 0 auto;
+    margin-top: 15px;
+    max-width: 400px;
+    padding: 10px 40px;
+    background: rgba(0,0,0,0.4);
+    color: #FFF;
+    text-shadow: none;
+    -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+    -moz-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.31);
+    border-radius: 20px;
+}
+
+span.input-group-addon i {
+    color: #2dc997;
+    font-size: 17px;
+}
+
+.login-button {
+    margin-top: 5px;
+}
+
+.login-register {
+    font-size: 11px;
+    text-align: center;
+}
+
+#close {
+    position: relative;
+    margin: auto;
+    color: #2dc997;
+}
+
+    .close:hover {
+        opacity: 1;
+    }
+
+    .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close:before {
+        transform: rotate(45deg);
+    }
+
+    .close:after {
+        transform: rotate(-45deg);
+    }
+
+#register {
+    margin-top:20px;
+    position: static;
+    display:block;
+}
+#login {
+    margin-top:10px;
+    position: static;
+    display:block;
+}
+.noAccount {
+    margin-top: 0;
+    color: white;
+    display:block;
+} 
+.noAccount:hover {
+    color: #2dc997;
+}
+#haveAccount{
+    margin-top:0;
+    color:white;
+} 
+    #haveAccount:hover {
+    color: #2dc997;
+}

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Zadbaj o siebie</title>
+    <link href="~/images/Index/logo.png" rel="icon" />
+    <link href="~/css/Index/loginRegister.css" rel="stylesheet" />
+    <link href="~/css/Index/overlay.css" rel="stylesheet" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    </environment>
+</head>
+
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+
+                <a href="#hero">
+                    <img src="~/images/Index/logo.png" />
+                </a>
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!--<h1><a href="#hero">Regna</a></h1>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#hero">Strona główna</a></li>
+                    <li><a href="#about">O nas</a></li>
+                    <li><a href="#services">Co oferujemy?</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a asp-area="" asp-controller="Kalendarz" asp-action="Index">Kalendarz</a></li>
+                    <li><a asp-area="" asp-controller="WyborKategorii" asp-action="Index">Wybór kategorii</a></li>
+                </ul>
+
+            </nav><!-- #nav-menu-container -->
+            <nav id="nav-menu-container2">
+                <ul class="nav-menu">
+                    <li><a href="#hero" onclick="showLogin()" style="cursor:pointer">Zaloguj</a></li>
+                    <li><a href="#hero" onclick="showRegister()" style="cursor:pointer">Zarejstruj</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><!-- #header -->
+
+    @RenderBody()
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>Regna</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+                -->
+                Bootstrap Templates by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
+                <p>&copy; 2017 - Lift It KC</p>
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/Index/index.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/counterup.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/easing.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/hoverIntent.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/superfish.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/waypoints.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/wow.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/fakeVisitCounter.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/changeBack.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/hideShow.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/Index/index.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/counterup.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/easing.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/hoverIntent.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/superfish.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/waypoints.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/wow.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/fakeVisitCounter.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/changeBack.min.js" asp-append-version="true"></script>
+        <script src="~/js/Index/hideShow.js"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

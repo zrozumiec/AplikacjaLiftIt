@@ -1,0 +1,138 @@
+﻿.opisWaga{
+    margin-top:20px;
+}
+
+.points_table thead {
+    width: 100%;
+}
+
+.points_table tbody {
+    height: 562px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.points_table thead tr {
+    width: 100%;
+    
+}
+
+#big {
+    display: inline;
+    text-align:left;
+}
+
+#small {
+    display: none;
+}
+    
+    
+    @media (max-width:850px) {
+        #big {
+            display: none;
+        }
+
+        #small {
+            display: inline;
+            font-size:9px;
+            text-align:left;
+        }
+    }
+
+.points_table tr {
+    width: 100%;
+}
+
+.points_table thead, .points_table tbody, .points_table tr, .points_table td, .points_table th {
+    display: inline-block;
+}
+
+.points_table thead {
+    background: #2dc997;
+    color: #fff;
+}
+
+    .points_table tbody td, .points_table thead > tr > th {
+        float: left;
+        border-bottom-width: 0;
+    }
+
+.points_table > tbody > tr > td, .points_table > tbody > tr > th, .points_table > tfoot > tr > td, .points_table > tfoot > tr > th, .points_table > thead > tr > td, .points_table > thead > tr > th {
+    padding: 8px;
+    height: 50px;
+    text-align: center;
+    line-height: 32px;
+}
+
+.odd {
+    background: #ffffff;
+    color: #000;
+}
+
+.even {
+    background: #efefef;
+    color: #000;
+    text-align:right;  
+}
+
+.points_table_scrollbar {
+    height: 612px;
+    overflow-y: scroll;
+}
+
+    .points_table_scrollbar::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+        border-radius: 10px;
+        background-color: #444444;
+    }
+
+    .points_table_scrollbar::-webkit-scrollbar {
+        width: 1%;
+        min-width: 5px;
+        background-color: #F5F5F5;
+    }
+
+    .points_table_scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #2dc997;
+        background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
+    }
+
+
+
+.przycisk .btn {
+    margin-top: 10px;
+    background: #428f76;
+    -webkit-transition: background 0.2s ease-in-out;
+    -moz-transition: background 0.2s ease-in-out;
+    -ms-transition: background 0.2s ease-in-out;
+    -o-transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+}
+
+.przycisk .btn-default {
+    color: #fff;
+    border-color: #fff;
+}
+
+    .przycisk .btn-default:hover {
+        background: rgba(225, 225, 225, 0.3);
+        color: #fff;
+        border-color: #fff;
+    }
+
+
+
+.przycisk .btn-success:hover {
+    background: #2dc997;
+}
+
+.przycisk .btn-link {
+    border: none;
+    color: #fff;
+    padding-left: 0;
+}
+
+    .przycisk .btn-link:hover {
+        background: none;
+    }

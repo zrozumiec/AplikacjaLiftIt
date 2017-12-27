@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Konto zostało potwierdzone. Dziękujemy!";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/css/Index/animate.min.css" rel="stylesheet" />
+<link href="~/css/Index/index.css" rel="stylesheet" />
+<link href="~/css/Index/circleProgress.css" rel="stylesheet" />
+
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Index/logo.png" />
+                </a>
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!--<h1><a href="#hero">Regna</a></h1>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a></li>
+                </ul>
+
+            </nav><!-- #nav-menu-container -->
+            @await Html.PartialAsync("_LoginPartial")
+        </div>
+    </header><!-- #header -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1><font color="#2dc997">@ViewData["Title"]<</font></h1>
+                <div>
+                    <p>
+                        Teraz możesz zalogowac się na swoje konto.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
