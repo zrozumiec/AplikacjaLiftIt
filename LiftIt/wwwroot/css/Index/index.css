@@ -877,3 +877,21 @@ body.mobile-nav-active {
         font-size: 13px;
         color: #ccc;
     }
+
+#helloName a {
+    display: inline;
+}
+#helloName2 a {
+    display: none;
+}
+
+ @media(max-width:1300px)
+ {
+    #helloName a {
+        display:none;
+    }
+
+    #helloName2 a {
+        display: inline;
+    }
+ }

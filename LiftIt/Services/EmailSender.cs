@@ -19,7 +19,8 @@ namespace LiftIt.Services
             try
             {
                 //From Address    
-                string FromAddress = "liftit2018@gmail.com";
+                //string FromAddress = "liftit2018@gmail.com";
+                string FromAddress = "LiftIt@lift-it.aspnet.pl";
                 string FromAdressTitle = "Lift-It";
                 //To Address    
                 string ToAddress = email;
@@ -28,8 +29,10 @@ namespace LiftIt.Services
                 string BodyContent = message;
 
                 //Smtp Server    
-                string SmtpServer = "smtp.gmail.com";
+                //string SmtpServer = "smtp.gmail.com";
+                string SmtpServer = "poczta.dcsweb.pl";
                 //Smtp Port Number    
+                //int SmtpPortNumber = 587;
                 int SmtpPortNumber = 587;
 
                 BodyBuilder bodyBuilder = new BodyBuilder();
@@ -56,7 +59,7 @@ namespace LiftIt.Services
                 {
                     client.Connect(SmtpServer, SmtpPortNumber, false);
                     client.Authenticate(
-                        "liftit2018@gmail.com",
+                        "LiftIt@lift-it.aspnet.pl",
                         "Student12#"
                         );
                     await client.SendAsync(mimeMessage);

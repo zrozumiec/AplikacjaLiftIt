@@ -9,7 +9,8 @@
 <form asp-area="" asp-controller="Home" asp-action="Logout" method="post" >
     <nav id="nav-menu-container2">
         <ul class="nav-menu">
-            <li><a asp-area="" asp-controller="Manage" asp-action="Index">Witaj <font color="#2dc997"> @UserManager.GetUserName(User)</font></a></li>
+            <li id="helloName"><a asp-area="" asp-controller="Manage" asp-action="Index">Witaj <font color="#2dc997"> @UserManager.GetUserName(User)</font></a></li>
+            <li id="helloName2"><a asp-area="" asp-controller="Manage" asp-action="Index">Witaj</a></li>
             <li><button>Wyloguj</button></li>
         </ul>
     </nav>

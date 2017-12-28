@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using LiftIt.Data;
 using LiftIt.Models;
 using LiftIt.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace LiftIt
 {
@@ -27,7 +29,7 @@ namespace LiftIt
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("RemoteConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
@@ -40,6 +42,11 @@ namespace LiftIt
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+            ///TODO:
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +62,10 @@ namespace LiftIt
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            ///TODO:
+            var options = new RewriteOptions()
+            .AddRedirectToHttps();
 
             app.UseStaticFiles();
 
