@@ -1,10 +1,13 @@
-﻿@model RegisterViewModel
+﻿@model ContactEmailModel
+@inject SignInManager<ApplicationUser> SignInManager
 
 @{
     ViewData["Title"] = "Lift It";
     Layout = "~/Views/Shared/_Layout.cshtml";
     //Layout = null;
 }
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +43,12 @@
             <div id="opisHero">
                 <h1>Witaj w aplikacji <font color="#2dc997"> LIFT IT</font></h1>
                 <h2>Z nami zadbasz o własne ciało oraz zdrowie</h2>
-                <a onclick="showLogin()" class="btn-get-started" style="cursor:pointer ">Rozpocznij :]</a>
+
+                @if (!SignInManager.IsSignedIn(User))
+                {
+                    <a asp-area="" asp-controller="Home" asp-action="Register" class="btn-get-started" style="cursor:pointer ">Rozpocznij :]</a>
+                }
+
             </div>
         </div>
     </section><!-- #hero -->
@@ -199,7 +207,11 @@
                         <p class="cta-text"> Dołącz do nas już dziś i przekonaj się, że nie warto zwlekać</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
-                        <a href="#hero" class="cta-btn align-middle" onclick="showRegister()" style="cursor:pointer">Dołącz teraz</a>
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                            <a class="cta-btn align-middle" asp-area="" asp-controller="Home" asp-action="Register" style="cursor:pointer">Dołącz teraz</a>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -243,22 +255,22 @@
                             <div id="sendmessage">Twoja wiadomość została wysłana. Dziękujemy!</div>
                             <div id="errormessage">Przepraszamy wystąpił błąd. Towja wiadomość nie możne zostać wysłana</div>
 
-                            <form id="formularzWiad" action="" method="post" role="form" class="contactForm">
+                            <form id="formularzWiad" action="@Url.Action("ContactEmail", "Home")" method="post" role="form" class="contactForm">
                                 <div class="form-group">
-                                    <input type="text" required name="name" class="form-control" id="name" placeholder="Imie" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input asp-for="UserName" type="text" required name="username" class="form-control" id="name" placeholder="Imie" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" required class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" />
+                                    <input asp-for="Email" type="email" required class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" />
                                 </div>
                                 <div class="form-group">
-                                    <select type="text" required class="form-control" name="subject" id="subject" placeholder="Temat" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                                        <option value="py">Pytanie</option>
-                                        <option value="pr">Problem</option>
-                                        <option value="i">Inne</option>
+                                    <select asp-for="MessageType" type="text" required class="form-control" name="MessageType" id="subject" placeholder="Temat" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                                        <option value="Pytanie">Pytanie</option>
+                                        <option value="Problem">Problem</option>
+                                        <option value="Inne">Inne</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" required name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Treść wiadomości"></textarea>
+                                    <textarea asp-for="Message" class="form-control" required name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Treść wiadomości"></textarea>
                                 </div>
                                 <div class="text-center"><button type="submit">Wyślij wiadomość</button></div>
                             </form>

@@ -879,7 +879,7 @@ body.mobile-nav-active {
     }
 
 #helloName a {
-    display: inline;
+    display: block;
 }
 #helloName2 a {
     display: none;
@@ -892,6 +892,11 @@ body.mobile-nav-active {
     }
 
     #helloName2 a {
-        display: inline;
+        display: block;
     }
  }
+
+#marginBootstrap
+{
+    margin-top:34px;
+}

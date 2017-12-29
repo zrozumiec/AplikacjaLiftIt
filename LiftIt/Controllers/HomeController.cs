@@ -264,6 +264,22 @@ namespace LiftIt.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ContactEmail(ContactEmailModel model, string returnUrl = null)
+        {
+                    await _emailSender.SendEmailAsync("kamil.ciupak@o2.pl", model.MessageType + " - " + model.UserName + " - " + model.Email,
+                     model.MessageType + " - " + model.UserName + " - " + model.Email + "<br/>" + "<br/>" + model.Message);
+
+                    return View("EmailSendOk");
+        }
+
+        public IActionResult EmailSendOk()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
@@ -367,7 +383,6 @@ namespace LiftIt.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
-
 
         [HttpGet]
         [AllowAnonymous]

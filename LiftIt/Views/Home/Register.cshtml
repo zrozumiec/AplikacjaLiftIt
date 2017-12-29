@@ -292,8 +292,9 @@
                             <div id="errormessage">Przepraszamy wystąpił błąd. Towja wiadomość nie możne zostać wysłana</div>
 
                             <form id="formularzWiad" action="" method="post" role="form" class="contactForm">
+                                <div asp-validation-summary="All"></div>
                                 <div class="form-group">
-                                    <input type="text" required name="name" class="form-control" id="name" placeholder="Imie" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                    <input  type="text" required name="name" class="form-control" id="name" placeholder="Imie" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 </div>
                                 <div class="form-group">
                                     <input type="email" required class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" />
