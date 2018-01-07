@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Ops aktualnie zakładka trening nie jest dostępna. Przepraszamy.";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/css/Index/animate.min.css" rel="stylesheet" />
+<link href="~/css/Index/index.css" rel="stylesheet" />
+<link href="~/css/Index/circleProgress.css" rel="stylesheet" />
+
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Index/logo.png" />
+                </a>
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!--<h1><a href="#hero">Regna</a></h1>-->
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a></li>
+                </ul>
+
+            </nav><!-- #nav-menu-container -->
+            @await Html.PartialAsync("_LoginPartial")
+        </div>
+    </header><!-- #header -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 style="text-align:left"><font color="#fff">Aplikaja LIFT IT powstała z myślą o osobach aktywnych fizycznie, aby w szybki i prosty sposób umożliwić przechowywanie informacji dotyczących codzinnej wagi, obwodów ciała oraz umożliwić monitorowanie postępów na siłowni, w bieganiu lub innej formy aktywności fizycznej. <br />Aby rozpoczać pracę z aplikacją należy:<br />1. Wejść w zakładkę kalendarz</font></h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+

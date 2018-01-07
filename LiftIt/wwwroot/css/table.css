@@ -25,7 +25,16 @@
 #small {
     display: none;
 }
-    
+@media (max-width:1000px) {
+    #big {
+        font-size: 10px;
+    }
+
+    #small {
+        display: none;
+    }
+}    
+
     
     @media (max-width:850px) {
         #big {
@@ -75,6 +84,22 @@
     text-align:right;  
 }
 
+@media(max-width: 400px)
+{
+    .odd {
+        background: #ffffff;
+        color: #000;
+        font-size:8px;
+    }
+
+    .even {
+        background: #efefef;
+        color: #000;
+        text-align: right;
+        font-size: 8px;
+    }
+}
+
 .points_table_scrollbar {
     height: 612px;
     overflow-y: scroll;
@@ -100,39 +125,3 @@
 
 
 
-.przycisk .btn {
-    margin-top: 10px;
-    background: #428f76;
-    -webkit-transition: background 0.2s ease-in-out;
-    -moz-transition: background 0.2s ease-in-out;
-    -ms-transition: background 0.2s ease-in-out;
-    -o-transition: background 0.2s ease-in-out;
-    transition: background 0.2s ease-in-out;
-}
-
-.przycisk .btn-default {
-    color: #fff;
-    border-color: #fff;
-}
-
-    .przycisk .btn-default:hover {
-        background: rgba(225, 225, 225, 0.3);
-        color: #fff;
-        border-color: #fff;
-    }
-
-
-
-.przycisk .btn-success:hover {
-    background: #2dc997;
-}
-
-.przycisk .btn-link {
-    border: none;
-    color: #fff;
-    padding-left: 0;
-}
-
-    .przycisk .btn-link:hover {
-        background: none;
-    }

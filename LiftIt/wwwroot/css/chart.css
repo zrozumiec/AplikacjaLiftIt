@@ -1,4 +1,25 @@
-﻿.morris-hover {
+﻿.wrapper {
+    width: 100% !important;
+    min-width: 460px;
+    height: 100% !important;
+    
+}
+
+@media(max-width:460px)
+{
+    .wrapper {
+        width: 100% !important;
+        min-width: 460px;
+        height: 100% !important;
+        margin-top: 150px;
+        margin-left: -120px;
+        -ms-transform: rotate(-90deg); /* IE 9 */
+        -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+        transform: rotate(-90deg);
+    }
+}
+
+.morris-hover {
     position: absolute;
     z-index: 1000;
 }

@@ -1,20 +1,26 @@
-﻿@{
+﻿@model TwoModelsWaga
+@{
     ViewData["Title"] = "Lift It";
     Layout = "~/Views/Shared/_Layout2.cshtml";
     //Layout = null;
 }
 
+
+<!DOCTYPE html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/css/Index/animate.min.css" rel="stylesheet" />
     <link href="~/css/Index/index2.css" rel="stylesheet" />
+    <link href="~/css/Index/index.css" rel="stylesheet" />
     <link href="~/css/panelTabs.css" rel="stylesheet" />
     <link href="~/css/form.css" rel="stylesheet" />
     <link href="~/css/table.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://www.cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
 
     <link href="~/css/chart.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" asp-append-version="true"></script>
 </head>
 
 
@@ -36,14 +42,10 @@
                     <li class="menu-active"><a asp-area="" asp-controller="Waga" asp-action="Index">Waga</a></li>
                     <li class=""><a asp-area="" asp-controller="Obwody" asp-action="Index">Obwody</a></li>
                     <li class=""><a asp-area="" asp-controller="" asp-action="">Trening</a></li>
-                    <li class=""><a asp-area="" asp-controller="WyborKategorii" asp-action="Index">Powrót</a></li>
+                    <li class=""><a asp-area="" asp-controller="Kalendarz" asp-action="Index">Powrót</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
-            <nav id="nav-menu-container2">
-                <ul class="nav-menu">
-                    <li class=""><a asp-area="" asp-controller="" asp-action="">Wyloguj</a></li>
-                </ul>
-            </nav>
+            @await Html.PartialAsync("_LoginPartial")
         </div>
     </header><!-- #header -->
 
@@ -76,47 +78,50 @@
                             <div class="container auth">
                                 <h2 class="opisWaga">Dodaj swoją wagę ciała</h2>
                                 <div id="big-form" class="well auth-box">
-                                    <form>
+                                    <form action="@Url.Action("InsertRecords", "Waga")" method="post">
                                         <fieldset>
                                             <!-- Form Name -->
                                             <legend></legend>
 
-                                            <!-- Text input-->
                                             <div class="form-group">
                                                 <div class="">
-                                                    <input id="waga" name="textinput" placeholder="Waga [kg]" class="form-control input-md" type="text" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Waga [kg]'">
-                                                </div>
-                                            </div>
-                                            <!-- Password input-->
-                                            <div class="form-group">
-                                                <div class="">
-                                                    <input id="tluszcz" name="tluszcz" placeholder="Tłuszcz [%]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tłuszcz [%]'">
+                                                    <input asp-for="DaneWaga.WagaCiala" id="waga" name="WagaCiala" placeholder="Waga [kg]" class="form-control input-md" type="text" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Waga [kg]'">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="">
-                                                    <input id="miesnie" name="miesnie" placeholder="Mięśnie [%]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mięśnie [%]'">
+                                                    <input asp-for="DaneWaga.Tluszcz" id="tluszcz" name="Tluszcz" placeholder="Tłuszcz [%]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tłuszcz [%]'">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="">
-                                                    <input id="woda" name="woda" placeholder="Woda [%]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Woda [%]'">
+                                                    <input asp-for="DaneWaga.Miesnie" id="miesnie" name="Miesnie" placeholder="Mięśnie [%]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mięśnie [%]'">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="">
-                                                    <input id="kosci" name="kosci" placeholder="Kości [kg]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kości [%]'">
+                                                    <input asp-for="DaneWaga.Woda" id="woda" name="Woda" placeholder="Woda [%]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Woda [%]'">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="">
-                                                    <input id="bmi" name="bmi" placeholder="BMI" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BMI'">
+                                                    <input asp-for="DaneWaga.Kosci" id="kosci" name="Kosci" placeholder="Kości [kg]" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kości [%]'">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <input asp-for="DaneWaga.BMI" id="bmi" name="bmi" placeholder="BMI" class="form-control input-md" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'BMI'">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <input asp-for="DaneWaga.StringDataPomiaru" id="StringDataPomiaru" name="StringDataPomiaru" placeholder="DataPomiaru" class="DataPomiaru2" type="hidden" onfocus="this.placeholder = ''" onblur="this.placeholder = 'DataPomiaru'">
                                                 </div>
                                             </div>
                                             <!-- Button -->
                                             <div class="form-group">
                                                 <div class="">
-                                                    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg btn-block">Dodaj</button>
+                                                    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg btn-block" type="submit" onclick="assignvaluetoInputText()">Dodaj</button>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -127,162 +132,80 @@
                         </div>
                         <div class="tab-pane fade in" id="tab2">
                             <div class="container">
-                                <div class="row">
+                                <div class="row col-lg-12">
                                     <h2 class="opisWaga">Przeglądaj swoją wagę ciała</h2>
-                                    <div class="form-group">
-                                        <div class="przycisk">
-                                            <button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg btn-block">Wyświetl/Odśwież</button>
-                                        </div>
-                                    </div>
                                     <table class="points_table">
                                         <thead>
                                             <tr id="big">
                                                 <th class="col-xs-1">#</th>
                                                 <th class="col-xs-3">Data</th>
-                                                <th class="col-xs-3">Waga[kg]</th>
+                                                <th class="col-xs-2">Waga[kg]</th>
                                                 <th class="col-xs-1">Tłuszcz[%]</th>
                                                 <th class="col-xs-1">Mięśnie[%]</th>
                                                 <th class="col-xs-1">Woda[%]</th>
                                                 <th class="col-xs-1">Kości[kg]</th>
-                                                <th class="col-xs-1">BMI</th>
+                                                <th class="col-xs-2">BMI</th>
                                             </tr>
                                             <tr id="small">
                                                 <th class="col-xs-1">#</th>
                                                 <th class="col-xs-3">D</th>
-                                                <th class="col-xs-3">W</th>
+                                                <th class="col-xs-2">W</th>
                                                 <th class="col-xs-1">T</th>
                                                 <th class="col-xs-1">M</th>
                                                 <th class="col-xs-1">W</th>
                                                 <th class="col-xs-1">K</th>
-                                                <th class="col-xs-1">B</th>
+                                                <th class="col-xs-2">B</th>
                                             </tr>
                                         </thead>
                                         <tbody class="points_table_scrollbar">
-                                            <tr class="odd">
-                                                <td class="col-xs-1">1</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                                <td class="col-xs-1">12</td>
-                                            </tr>
-                                            <tr class="even">
-                                                <td class="col-xs-1">2</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 2</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
+                                            @{ int i = 0; bool oddEven = false;}
+                                            @foreach (var item in Model.SelectWaga)
+                                            {
+                                                i = i + 1;
+                                                if (oddEven == false)
+                                                {
+                                                <tr class="odd">
+                                                    <td class="col-xs-1">@i</td>
+                                                    <td class="col-xs-3">@item.DataPomiaru</td>
+                                                    <td class="col-xs-2">@item.WagaCiala</td>
+                                                    <td class="col-xs-1">@item.Tluszcz</td>
+                                                    <td class="col-xs-1">@item.Miesnie</td>
+                                                    <td class="col-xs-1">@item.Woda</td>
+                                                    <td class="col-xs-1">@item.Kosci</td>
+                                                    <td class="col-xs-2">@item.BMI</td>
+                                                </tr>
+                                                    }
 
-                                            <tr class="odd">
-                                                <td class="col-xs-1">3</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 3</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="even">
-                                                <td class="col-xs-1">4</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 4</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="odd">
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 5</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="even">
-                                                <td class="col-xs-1">6</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 6</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="odd">
-                                                <td class="col-xs-1">7</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 7</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="even">
-                                                <td class="col-xs-1">8</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 8</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="odd">
-                                                <td class="col-xs-1">9</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 9</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="even">
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 10</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="odd">
-                                                <td class="col-xs-1">11</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 11</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="even">
-                                                <td class="col-xs-1">12</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 12</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
-                                            <tr class="odd">
-                                                <td class="col-xs-1">13</td>
-                                                <td class="col-xs-3">10-12-2017</td>
-                                                <td class="col-xs-3">Test Points 13</td>
-                                                <td class="col-xs-1">10</td>
-                                                <td class="col-xs-1">0</td>
-                                                <td class="col-xs-1">5</td>
-                                                <td class="col-xs-1">1</td>
-                                            </tr>
+                                                    if (oddEven == true)
+                                                    {
+                                                <tr class="even">
+                                                    <td class="col-xs-1">@i</td>
+                                                    <td class="col-xs-3">@item.DataPomiaru</td>
+                                                    <td class="col-xs-2">@item.WagaCiala</td>
+                                                    <td class="col-xs-1">@item.Tluszcz</td>
+                                                    <td class="col-xs-1">@item.Miesnie</td>
+                                                    <td class="col-xs-1">@item.Woda</td>
+                                                    <td class="col-xs-1">@item.Kosci</td>
+                                                    <td class="col-xs-2">@item.BMI</td>
+                                                </tr>
+                                                }
+
+                                                if (oddEven == false)
+                                                {
+                                                oddEven = true;
+                                                }
+                                                else
+                                                {
+                                                oddEven = false;
+                                                }
+
+                                                }
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="fade in" id="tab3">
+                        <div class="tab-pane fade in" id="tab3">
                             <div class="container">
                                 <div class="row">
                                     <div class="napish2" id="napisWaga">
@@ -294,7 +217,139 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div id="line-chart-waga"></div>
+                                        <div id="">
+                                            <div class="wrapper">
+                                                <canvas id="Linecanvas"></canvas>
+                                            </div>
+                                            
+
+                                            <script>
+                                                var DataWagaCiala =
+                                                        {
+
+                                                                label: 'Waga ciała[kg]',
+                                                                backgroundColor: "rgba(45, 202, 152, 1)",
+                                                                borderWidth: 3,
+                                                                data: [@ViewBag.WagaCiala],
+                                                                borderColor: 'rgba(45, 202, 152, 1)',
+                                                                fill: false
+                                                    };
+                                                var DataMiesnie =
+                                                        {
+
+                                                                label: 'Mięśnie[%]',
+                                                                backgroundColor: "rgba(220, 20 ,60, 1)",
+                                                                borderWidth: 3,
+                                                                data: [@ViewBag.MiesnieWaga],
+                                                                borderColor: 'rgba(220, 20 ,60, 1)',
+                                                                fill: false,
+                                                                hidden:true
+                                                    };
+                                                var DataTluszcz =
+                                                        {
+
+                                                                label: 'Tłuszcz[%]',
+                                                                backgroundColor: "rgba(255, 140, 0,1)",
+                                                                borderWidth: 3,
+                                                                data: [@ViewBag.TluszczWaga],
+                                                                borderColor: 'rgba(255, 140, 0,1)',
+                                                                fill: false,
+                                                                hidden: true
+                                                    };
+                                                var DataKosci =
+                                                        {
+
+                                                                label: 'Kosci[kg]',
+                                                                backgroundColor: "rgba(148, 0, 211,1)",
+                                                                borderWidth: 3,
+                                                                data: [@ViewBag.KosciWaga],
+                                                                borderColor: 'rgba(148, 0, 211,1)',
+                                                                fill: false,
+                                                                hidden: true
+                                                    };
+                                                 var DataWoda =
+                                                        {
+
+                                                                label: 'Woda[%]',
+                                                                backgroundColor: "rgba(	0, 128, 128,1)",
+                                                                borderWidth: 3,
+                                                                data: [@ViewBag.WodaWaga],
+                                                                borderColor: 'rgba(0, 128, 128,1)',
+                                                                fill: false,
+                                                                hidden: true
+                                                        };
+                                                  var DataBMI =
+                                                        {
+
+                                                                label: 'BMI',
+                                                                backgroundColor: "rgba(30, 144, 255,1)",
+                                                                borderWidth: 3,
+                                                                data: [@ViewBag.BMIWaga],
+                                                                borderColor: 'rgba(30, 144, 255,1)',
+                                                                fill: false,
+                                                                hidden: true
+                                                        };
+
+                                                  var LineChartData = {
+                                                      labels: [@Html.Raw(ViewBag.DataWaga)],
+                                                      datasets: [DataWagaCiala, DataMiesnie, DataTluszcz, DataKosci, DataWoda, DataBMI]
+
+                                                  };
+
+
+                                                             var ctx1 = document.getElementById("Linecanvas");
+                                                            var chartLinee = new Chart(ctx1,
+                                                                {
+                                                                    type: 'line',
+                                                                    data: LineChartData,
+                                                                    options:
+                                                                    {
+                                                                        legend: {
+                                                                            display: true,
+                                                                            position: 'top',
+                                                                            labels: {
+                                                                                boxWidth: 50,
+                                                                                fontColor: '#fff',
+
+                                                                            }
+                                                                        },
+                                                                        scales: {
+                                                                            xAxes: [{
+                                                                                ticks: {
+                                                                                    fontColor: "#fff", // this here
+                                                                                },
+                                                                                scaleLabel: {
+                                                                                    display: true,
+                                                                                    labelString: 'Data',
+                                                                                    fontColor: "#fff",
+                                                                                    fontSize: 15
+                                                                                }
+                                                                            }],
+                                                                            yAxes: [{
+                                                                                ticks: {
+                                                                                    fontColor: "#fff", // this here
+                                                                                },
+                                                                                scaleLabel: {
+                                                                                    display: true,
+
+                                                                                }
+                                                                            }],
+                                                                        },
+                                                                        title:
+                                                                        {
+                                                                            fontColor: "#fff", // this here
+                                                                            display: true,
+                                                                            text: "Klikając na poniższe nazwy mozesz włączyć lub wyłączyć wybrany wykres.",
+                                                                            fontSize: 20
+                                                                        },
+                                                                        responsive: true,
+                                                                        maintainAspectRatio: true,
+                                                                            
+
+                                                                    }
+                                                                 });
+                                            </script>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -4,12 +4,8 @@
 }
 
 <head>
-    <meta charset="utf-8">
-    <title>Regna Bootstrap Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <!-- Favicons -->
+    <meta name="viewport" content="width=device-width">
+
 
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -50,6 +46,7 @@ Header
             </ul>
 
         </nav><!-- #nav-menu-container -->
+        @await Html.PartialAsync("_LoginPartial")
     </div>
 </header><!-- #header -->
 
@@ -83,7 +80,7 @@ Header
                 <figcaption>
                     <h3>Trening</h3>
                     <p>Prowadz swój dziennik treningu, zapisuj postępy z siłowni, aby określić uzykany progres.</p>
-                </figcaption><a asp-area="" asp-controller="" asp-action=""></a>
+                </figcaption><a asp-area="" asp-controller="WyborKategorii" asp-action="Error"></a>
             </figure>
         </li>
     </ul>

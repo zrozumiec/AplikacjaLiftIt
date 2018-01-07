@@ -5,7 +5,10 @@
     }
 
     this.days = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
+    this.daysNumber = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
+        '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
     this.months = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
+    this.monthsNumber = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
     this.apts = [
         {
@@ -22,7 +25,6 @@
         },
 
     ];
-
     this.aptDates = [new Date(2016, 4, 30).toString(), new Date(2016, 4, 1).toString()];
     this.eles = {
     };
@@ -161,45 +163,19 @@ CalendarApp.prototype.showDay = function (e, dayEle) {
 
 
 };
+///
 CalendarApp.prototype.openDayWindow = function (date) {
 
     var now = new Date();
     var day = new Date(date);
-    this.dayViewDateEle.textContent = this.days[day.getDay()] + ", " + this.months[day.getMonth()] + " " + day.getDate() + ", " + day.getFullYear();
-    this.dayViewDateEle.setAttribute('data-date', day);
-    this.dayViewEle.classList.add("calendar--day-view-active");
+    var chooseDay = this.daysNumber[(day.getDate() - 1)] + "/" + this.monthsNumber[day.getMonth()] + "/" + day.getFullYear() + " ";
+    localStorage.setItem("chooseDay", chooseDay);
+    window.location.href = "/WyborKategorii/Index/";
+};
 
-    /* Contextual lang changes based on tense. Also show btn for scheduling future events */
-    var _dayTopbarText = '';
-    if (day < new Date(now.getFullYear(), now.getMonth(), now.getDate())) {
-        _dayTopbarText = "had ";
-        this.addDayEventEle.style.display = "none";
-    } else {
-        _dayTopbarText = "have ";
-        this.addDayEventEle.style.display = "inline";
-    }
-    this.addDayEventEle.setAttribute("data-date", day);
-
-    var eventsToday = this.showEventsByDay(day);
-    if (!eventsToday) {
-        _dayTopbarText += "no ";
-        var _rand = Math.round(Math.random() * ((this.quotes.length - 1) - 0) + 0);
-        this.dayInspirationalQuote.textContent = this.quotes[_rand];
-    } else {
-        _dayTopbarText += eventsToday.length + " ";
-        this.dayInspirationalQuote.textContent = null;
-    }
-    //this.dayEventsList.innerHTML = this.showEventsCreateHTMLView(eventsToday);
-    while (this.dayEventsList.firstChild) {
-        this.dayEventsList.removeChild(this.dayEventsList.firstChild);
-    }
-
-    this.dayEventsList.appendChild(this.showEventsCreateElesView(eventsToday));
-
-
-    this.dayEventsEle.textContent = _dayTopbarText + "events on " + this.months[day.getMonth()] + " " + day.getDate() + ", " + day.getFullYear();
-
-
+function assignvaluetoInputText() {
+    var chooseDay = localStorage.getItem("chooseDay")
+    $('.DataPomiaru2').val(chooseDay);
 };
 
 CalendarApp.prototype.showEventsCreateElesView = function (events) {

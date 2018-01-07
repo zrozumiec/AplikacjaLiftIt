@@ -31,6 +31,9 @@ namespace LiftIt
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("RemoteConnection")));
 
+            //services.AddDbContext<StoreContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("LocalConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
                 config.SignIn.RequireConfirmedEmail = true;

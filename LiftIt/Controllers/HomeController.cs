@@ -22,6 +22,11 @@ namespace LiftIt.Controllers
             return View();
         }
 
+        public IActionResult FirstStep()
+        {
+            return View();
+        }
+
         public IActionResult ConfirmRegistration()
         {
             ViewData["Message"] = "Your application description page.";
